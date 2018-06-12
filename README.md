@@ -54,7 +54,13 @@ source venv/bin/activate && python manage.py init
 make run_prod
 ```
 
-#### frontend
+### frontend
+
+* Install angular-cli
+```sh
+npm install -g @angular/cli
+```
+
 * Development
 ```sh
 cd frontend

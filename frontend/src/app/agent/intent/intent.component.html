@@ -108,9 +108,10 @@
     </p>
 
 
-
     <mat-card-actions>
       <button mat-raised-button color="primary" [disabled]="!intentForm.valid">Save</button>
+      <button mat-raised-button color="primary" [disabled]="!intentForm.valid" (click)="cancel()">Cancel</button>
     </mat-card-actions>
+    
   </form>
 </mat-card>

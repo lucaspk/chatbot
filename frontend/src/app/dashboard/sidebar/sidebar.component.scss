@@ -8,4 +8,16 @@
 
 .main-logo{
     border-bottom: 1px solid #efefef;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/deep/ .mat-drawer,.mat-sidenav {
+    max-width: 260px !important;
+    min-width: 240px !important;
+}
+
+/deep/ .mat-drawer-content,.mat-sidenav-content {
+    margin-left:280px !important;
 }

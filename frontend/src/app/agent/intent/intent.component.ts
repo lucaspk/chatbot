@@ -134,22 +134,38 @@ export class IntentComponent implements OnInit {
   }
   save() {
     const form = this.intentForm.value;
-    if (form._id && form._id.$oid) {
-      form._id = form._id.$oid;
-    }
-    if (!this.apiTrigger()) {
-      delete form.apiDetails;
-    }
+    const name = form.name;
+    const id = form.id;
+    const speechResponse = form.speechResponse;
+    console.log(id);
+    if (name === undefined || name === "" || name.trim() === "") {
+      alert("Intent name can't be empty.");
+    } else if (id === undefined || id === "" || id.trim() === "") {
+      alert("Intent ID can't be empty.");
+    } else if (speechResponse === undefined || speechResponse === "" || speechResponse.trim() === "") {
+      alert("Speech response can't be empty.");
+    } else {
+      if (form._id && form._id.$oid) {
+        form._id = form._id.$oid;
+      }
+      if (!this.apiTrigger()) {
+        delete form.apiDetails;
+      }
 
-    this.intentService.saveIntent(form)
-      .then(c => {
-        this.message = 'Intent created!';
-        this._router.navigate(["/agent/default/edit-intent", c["_id"]])
-      })
+      this.intentService.saveIntent(form)
+        .then(c => {
+          this.message = 'Intent created!';
+          this._router.navigate(["/agent/default/intents"])
+        })
+    }
   }
 
   apiTrigger() {
     return this.intentForm.value.apiTrigger;
+  }
+
+  cancel() {
+    
   }
 
 }

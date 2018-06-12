@@ -99,6 +99,7 @@ export class TrainComponent implements OnInit {
   }
 
   deleteExample(example_index){
+    console.log(example_index);
     this.trainingData.splice(example_index,1)
   }
 
